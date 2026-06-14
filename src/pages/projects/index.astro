@@ -1,0 +1,116 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { SITE_TITLE, CATEGORY_LABELS } from '../../consts';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+// Apenas as categorias que realmente têm projetos viram filtros.
+const usedCategories = [...new Set(projects.map((p) => p.data.category))];
+const filters = usedCategories.map((c) => ({ value: c, label: CATEGORY_LABELS[c] }));
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<BaseHead title={`Projetos · ${SITE_TITLE}`} description="Projetos práticos por área." />
+		<style>
+			main {
+				width: 960px;
+				max-width: calc(100% - 2em);
+			}
+			h1 {
+				margin-bottom: 0.2em;
+			}
+			.lead {
+				color: rgb(var(--gray));
+				margin-top: 0;
+			}
+			.note {
+				padding: 0.7em 1em;
+				margin: 1em 0;
+				font-size: 0.9rem;
+				color: rgb(var(--gray-dark));
+				background: rgb(var(--gray-light));
+				border-radius: 8px;
+			}
+			.filters {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5em;
+				margin: 1.5em 0;
+			}
+			.filters button {
+				padding: 0.4em 1em;
+				border: 1px solid rgb(var(--gray-light));
+				background: white;
+				border-radius: 999px;
+				cursor: pointer;
+				font-size: 0.9rem;
+				color: rgb(var(--gray-dark));
+				transition: 0.2s ease;
+			}
+			.filters button[aria-pressed='true'] {
+				background: var(--accent);
+				border-color: var(--accent);
+				color: white;
+			}
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 1.5em;
+			}
+			.card-wrap.hidden {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Projetos</h1>
+			<p class="lead">Uma seleção de projetos práticos, organizados por área.</p>
+			<p class="note">
+				ℹ️ Alguns projetos abaixo são exemplos para demonstrar o layout — serão
+				substituídos pelos meus projetos reais.
+			</p>
+
+			<div class="filters" role="group" aria-label="Filtrar por categoria">
+				<button data-filter="all" aria-pressed="true">Todos</button>
+				{filters.map((f) => <button data-filter={f.value} aria-pressed="false">{f.label}</button>)}
+			</div>
+
+			<div class="grid" id="grid">
+				{
+					projects.map((project) => (
+						<div class="card-wrap" data-category={project.data.category}>
+							<ProjectCard project={project} />
+						</div>
+					))
+				}
+			</div>
+		</main>
+		<Footer />
+
+		<script>
+			const buttons = document.querySelectorAll<HTMLButtonElement>('.filters button');
+			const cards = document.querySelectorAll<HTMLElement>('.card-wrap');
+
+			buttons.forEach((btn) => {
+				btn.addEventListener('click', () => {
+					const filter = btn.dataset.filter;
+					buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+					cards.forEach((card) => {
+						const show = filter === 'all' || card.dataset.category === filter;
+						card.classList.toggle('hidden', !show);
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

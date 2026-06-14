@@ -7,6 +7,8 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
+	// TODO: troque pela URL final do seu site (Worker ou domínio próprio).
+	// Ex.: https://astro-blog-starter-template.<seu-subdominio>.workers.dev
 	site: "https://example.com",
 	integrations: [mdx(), sitemap()],
 	adapter: cloudflare({
