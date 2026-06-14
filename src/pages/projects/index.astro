@@ -48,7 +48,7 @@ const filters = usedCategories.map((c) => ({ value: c, label: CATEGORY_LABELS[c]
 			.filters button {
 				padding: 0.4em 1em;
 				border: 1px solid rgb(var(--gray-light));
-				background: white;
+				background: rgb(var(--surface));
 				border-radius: 999px;
 				cursor: pointer;
 				font-size: 0.9rem;
@@ -58,7 +58,7 @@ const filters = usedCategories.map((c) => ({ value: c, label: CATEGORY_LABELS[c]
 			.filters button[aria-pressed='true'] {
 				background: var(--accent);
 				border-color: var(--accent);
-				color: white;
+				color: var(--on-accent);
 			}
 			.grid {
 				display: grid;
