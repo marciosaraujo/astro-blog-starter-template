@@ -1,5 +1,6 @@
 ---
 import HeaderLink from './HeaderLink.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import { SITE_TITLE, SOCIAL } from '../consts';
 ---
 
@@ -31,14 +32,15 @@ import { SITE_TITLE, SOCIAL } from '../consts';
 				>
 			</a>
 		</div>
+		<ThemeToggle />
 	</nav>
 </header>
 <style>
 	header {
 		margin: 0;
 		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		background: rgb(var(--surface));
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 8%);
 	}
 	h2 {
 		margin: 0;
