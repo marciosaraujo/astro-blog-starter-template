@@ -10,15 +10,15 @@ const projects = (await getCollection('projects')).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 
-// Apenas as categorias que realmente têm projetos viram filtros.
+// Only categories that actually have projects become filters.
 const usedCategories = [...new Set(projects.map((p) => p.data.category))];
 const filters = usedCategories.map((c) => ({ value: c, label: CATEGORY_LABELS[c] }));
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 	<head>
-		<BaseHead title={`Projetos · ${SITE_TITLE}`} description="Projetos práticos por área." />
+		<BaseHead title={`Projects · ${SITE_TITLE}`} description="Hands-on projects by area." />
 		<style>
 			main {
 				width: 960px;
@@ -36,8 +36,9 @@ const filters = usedCategories.map((c) => ({ value: c, label: CATEGORY_LABELS[c]
 				margin: 1em 0;
 				font-size: 0.9rem;
 				color: rgb(var(--gray-dark));
-				background: rgb(var(--gray-light));
-				border-radius: 8px;
+				background: rgba(var(--surface-rgb), 0.6);
+				border: 1px solid var(--border);
+				border-radius: var(--radius);
 			}
 			.filters {
 				display: flex;
@@ -46,19 +47,25 @@ const filters = usedCategories.map((c) => ({ value: c, label: CATEGORY_LABELS[c]
 				margin: 1.5em 0;
 			}
 			.filters button {
-				padding: 0.4em 1em;
-				border: 1px solid rgb(var(--gray-light));
-				background: rgb(var(--surface));
+				padding: 0.45em 1.1em;
+				border: 1px solid var(--border);
+				background: rgba(var(--surface-rgb), 0.5);
 				border-radius: 999px;
 				cursor: pointer;
 				font-size: 0.9rem;
+				font-weight: 500;
 				color: rgb(var(--gray-dark));
 				transition: 0.2s ease;
+			}
+			.filters button:hover {
+				border-color: rgba(var(--accent-rgb), 0.4);
+				color: rgb(var(--black));
 			}
 			.filters button[aria-pressed='true'] {
 				background: var(--accent);
 				border-color: var(--accent);
 				color: var(--on-accent);
+				box-shadow: 0 4px 14px var(--accent-glow);
 			}
 			.grid {
 				display: grid;
@@ -73,15 +80,15 @@ const filters = usedCategories.map((c) => ({ value: c, label: CATEGORY_LABELS[c]
 	<body>
 		<Header />
 		<main>
-			<h1>Projetos</h1>
-			<p class="lead">Uma seleção de projetos práticos, organizados por área.</p>
+			<h1>Projects</h1>
+			<p class="lead">A selection of hands-on projects, organized by area.</p>
 			<p class="note">
-				ℹ️ Alguns projetos abaixo são exemplos para demonstrar o layout — serão
-				substituídos pelos meus projetos reais.
+				ℹ️ Some of the projects below are examples to demonstrate the layout — they
+				will be replaced with my real projects.
 			</p>
 
-			<div class="filters" role="group" aria-label="Filtrar por categoria">
-				<button data-filter="all" aria-pressed="true">Todos</button>
+			<div class="filters" role="group" aria-label="Filter by category">
+				<button data-filter="all" aria-pressed="true">All</button>
 				{filters.map((f) => <button data-filter={f.value} aria-pressed="false">{f.label}</button>)}
 			</div>
 
