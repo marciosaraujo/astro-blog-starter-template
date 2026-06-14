@@ -1,0 +1,79 @@
+---
+import type { CollectionEntry } from "astro:content";
+import TechBadge from "./TechBadge.astro";
+import { CATEGORY_LABELS } from "../consts";
+
+interface Props {
+	project: CollectionEntry<"projects">;
+}
+const { project } = Astro.props;
+const { title, description, category, tech, coverImage } = project.data;
+---
+
+<a class="card" href={`/projects/${project.id}/`} data-category={category}>
+	{
+		coverImage && (
+			<img class="cover" src={coverImage} alt="" width={720} height={360} loading="lazy" />
+		)
+	}
+	<div class="body">
+		<span class="category">{CATEGORY_LABELS[category]}</span>
+		<h3 class="title">{title}</h3>
+		<p class="description">{description}</p>
+		<div class="tech">
+			{tech.slice(0, 4).map((t) => <TechBadge label={t} />)}
+		</div>
+	</div>
+</a>
+
+<style>
+	.card {
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		text-decoration: none;
+		color: inherit;
+		background: white;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 12px;
+		transition: box-shadow 0.2s ease, transform 0.2s ease;
+	}
+	.card:hover {
+		box-shadow: var(--box-shadow);
+		transform: translateY(-2px);
+	}
+	.cover {
+		width: 100%;
+		height: 180px;
+		object-fit: cover;
+	}
+	.body {
+		padding: 1.2em;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+	}
+	.category {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: rgb(var(--accent));
+		font-weight: 600;
+	}
+	.title {
+		margin: 0;
+		font-size: 1.25rem;
+		line-height: 1.2;
+	}
+	.description {
+		margin: 0;
+		color: rgb(var(--gray));
+		font-size: 0.95rem;
+	}
+	.tech {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4em;
+		margin-top: 0.3em;
+	}
+</style>

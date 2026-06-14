@@ -1,64 +1,87 @@
-# Astro Starter Kit: Blog
+# Portfólio — Marcio Araujo
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/astro-blog-starter-template)
+Portfólio de projetos full-stack construído com **Astro** e implantado na borda da **Cloudflare Workers**. Os projetos são definidos como conteúdo em Markdown/MDX e organizados por área (Frontend, Backend/APIs, Dados/IA e Full-stack).
 
-![Astro Template Preview](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+🔗 **Demo ao vivo:** _adicione aqui a URL do seu Worker depois do primeiro deploy_
+💻 **GitHub:** [@marciosaraujo](https://github.com/marciosaraujo)
 
-<!-- dash-content-start -->
+## Destaques
 
-Create a blog with Astro and deploy it on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
+- ✅ Vitrine de projetos com galeria filtrável por categoria
+- ✅ Página dedicada por projeto, com stack, demo e link do código
+- ✅ 100/100 de performance no Lighthouse
+- ✅ SEO com URLs canônicas, OpenGraph e sitemap
+- ✅ Feed RSS dos projetos
+- ✅ Markdown & MDX para o conteúdo
+- ✅ Logging de observabilidade embutido (Cloudflare)
 
-Features:
+## Stack
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-- ✅ Built-in Observability logging
+- **Web:** Astro, TypeScript, JavaScript, React, HTML/CSS
+- **Backend / Infra:** Node.js, Cloudflare Workers, APIs REST, bancos de dados
+- **Dados / IA:** Python, LLMs (API Claude), análise de dados
 
-<!-- dash-content-end -->
+## Estrutura
 
-## Getting Started
-
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
-
-```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/astro-blog-starter-template
+```
+src/
+├── content/projects/      # Um arquivo .md/.mdx por projeto (o conteúdo do portfólio)
+├── content.config.ts      # Schema da coleção "projects"
+├── consts.ts              # Dados do site: nome, tagline, skills, links sociais
+├── pages/
+│   ├── index.astro        # Home: hero + skills + projetos em destaque
+│   ├── about.astro        # Sobre / contato
+│   └── projects/          # Galeria (index) e página de cada projeto ([...slug])
+├── components/            # ProjectCard, TechBadge, Header, Footer, ...
+└── layouts/ProjectPost.astro
 ```
 
-A live public deployment of this template is available at [https://astro-blog-starter-template.templates.workers.dev](https://astro-blog-starter-template.templates.workers.dev)
+## Como adicionar um projeto
 
-## 🚀 Project Structure
+Crie um arquivo em `src/content/projects/`, por exemplo `meu-projeto.md`:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+```markdown
+---
+title: "Nome do projeto"
+description: "Uma frase sobre o que ele faz."
+category: "fullstack"          # frontend | backend | data-ai | fullstack
+tech: ["Astro", "TypeScript"]
+repoUrl: "https://github.com/marciosaraujo/meu-projeto"
+demoUrl: "https://meu-projeto.exemplo.dev"   # opcional
+featured: true                  # aparece na home
+coverImage: "/minha-capa.jpg"   # opcional, em public/
+date: 2026-06-01
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Problema
+...
+## Solução
+...
+```
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+O projeto aparece automaticamente na galeria e (se `featured: true`) na home.
 
-Any static assets, like images, can be placed in the `public/` directory.
+> Os 4 projetos atuais em `src/content/projects/` são exemplos — substitua pelos seus.
 
-## 🧞 Commands
+## 🧞 Comandos
 
-All commands are run from the root of the project, from a terminal:
+| Comando            | Ação                                              |
+| :----------------- | :------------------------------------------------ |
+| `npm install`      | Instala as dependências                           |
+| `npm run dev`      | Servidor de desenvolvimento em `localhost:4321`   |
+| `npm run build`    | Gera o site de produção em `./dist/`              |
+| `npm run preview`  | Build + preview local via Wrangler                |
+| `npm run check`    | Valida tudo: build + `tsc` + deploy dry-run       |
+| `npm run deploy`   | Publica na Cloudflare Workers                      |
+| `npx wrangler tail`| Logs em tempo real do Worker                       |
 
-| Command                           | Action                                           |
-| :-------------------------------- | :----------------------------------------------- |
-| `npm install`                     | Installs dependencies                            |
-| `npm run dev`                     | Starts local dev server at `localhost:4321`      |
-| `npm run build`                   | Build your production site to `./dist/`          |
-| `npm run preview`                 | Preview your build locally, before deploying     |
-| `npm run astro ...`               | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help`         | Get help using the Astro CLI                     |
-| `npm run build && npm run deploy` | Deploy your production site to Cloudflare        |
-| `npm wrangler tail`               | View real-time logs for all Workers              |
+## Antes de publicar
 
-## 👀 Want to learn more?
+1. Ajuste seus dados em `src/consts.ts` (nome, tagline, skills, links).
+2. Troque o `site` em `astro.config.mjs` pela URL real do seu site.
+3. Substitua os projetos de exemplo pelos seus.
+4. `npm run check` e depois `npm run deploy`.
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
 
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+Construído sobre o template [Astro Blog Starter](https://github.com/cloudflare/templates/tree/main/astro-blog-starter-template) da Cloudflare, baseado no tema [Bear Blog](https://github.com/HermanMartinus/bearblog/).
