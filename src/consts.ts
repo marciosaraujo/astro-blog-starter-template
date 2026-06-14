@@ -1,9 +1,9 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
 
-export const SITE_TITLE = "Marcio Araujo — Portfolio Template";
+export const SITE_TITLE = "Marcio Araujo — Portfolio";
 export const SITE_DESCRIPTION =
-	"Projetos práticos de desenvolvimento full-stack: frontend, backend/APIs e dados/IA.";
+	"Hands-on DevOps/SRE projects: infrastructure, automation, observability and reliability.";
 
 export const AUTHOR = "Marcio Araujo";
 export const TAGLINE = "DevOps / SRE";
@@ -13,19 +13,19 @@ export const SOCIAL = {
 	email: "marcio@marcioaraujo.net",
 };
 
-// Tecnologias destacadas na home, agrupadas por área.
+// Featured technologies on the home page, grouped by area.
 export const SKILLS: { group: string; items: string[] }[] = [
-	{ group: "Containers & Orquestração", items: ["Docker", "Kubernetes", "Helm", "Rancher"] },
+	{ group: "Containers & Orchestration", items: ["Docker", "Kubernetes", "Helm", "Rancher"] },
 	{ group: "IaC & CI/CD", items: ["Azure DevOps", "Terraform", "Ansible", "GitHub Actions", "GitLab CI", "ArgoCD"] },
 	{ group: "Cloud & Infra", items: ["Azure", "AWS", "Cloudflare", "Linux", "Nginx"] },
-	{ group: "Observabilidade", items: ["Grafana", "New Relic", "DataDog", "Splunk", "Jira Service Management"] },
+	{ group: "Observability", items: ["Grafana", "New Relic", "DataDog", "Splunk", "Jira Service Management"] },
 	{ group: "Scripting", items: ["Bash", "Python", "Go"] },
 ];
 
-// Rótulos legíveis para as categorias de projeto.
+// Human-readable labels for project categories.
 export const CATEGORY_LABELS: Record<string, string> = {
-	infra: "Infraestrutura",
-	observability: "Observabilidade",
-	automation: "Automação / CI-CD",
-	platform: "Plataforma",
+	infra: "Infrastructure",
+	observability: "Observability",
+	automation: "Automation / CI-CD",
+	platform: "Platform",
 };

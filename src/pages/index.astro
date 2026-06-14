@@ -14,7 +14,7 @@ const highlight = featured.length ? featured : allProjects.slice(0, 3);
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
@@ -23,16 +23,56 @@ const highlight = featured.length ? featured : allProjects.slice(0, 3);
 				max-width: calc(100% - 2em);
 			}
 			.hero {
-				padding: 2em 0 1em;
+				padding: 3em 0 1.5em;
+			}
+			.badge {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5em;
+				padding: 0.35em 0.85em;
+				margin-bottom: 1.2em;
+				font-size: 0.85rem;
+				font-weight: 500;
+				color: rgb(var(--gray-dark));
+				background: rgba(var(--accent-rgb), 0.08);
+				border: 1px solid rgba(var(--accent-rgb), 0.25);
+				border-radius: 999px;
+			}
+			.badge .dot {
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: #22c55e;
+				box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+				animation: pulse 2s infinite;
+			}
+			@keyframes pulse {
+				0% {
+					box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+				}
+				70% {
+					box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+				}
+				100% {
+					box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+				}
 			}
 			.hero h1 {
-				font-size: 2.5rem;
+				font-size: clamp(2.5rem, 6vw, 3.75rem);
 				margin: 0 0 0.3em;
+				line-height: 1.05;
+			}
+			.hero h1 .grad {
+				background: linear-gradient(120deg, var(--accent), var(--accent-dark));
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
 			}
 			.hero p {
-				font-size: 1.2rem;
+				font-size: 1.25rem;
 				color: rgb(var(--gray));
-				margin: 0 0 1.2em;
+				margin: 0 0 1.5em;
+				max-width: 38ch;
 			}
 			.cta {
 				display: flex;
@@ -41,29 +81,41 @@ const highlight = featured.length ? featured : allProjects.slice(0, 3);
 			}
 			.cta a {
 				display: inline-block;
-				padding: 0.6em 1.3em;
-				border-radius: 8px;
+				padding: 0.7em 1.4em;
+				border-radius: 10px;
 				text-decoration: none;
 				font-weight: 600;
+				font-size: 0.95rem;
+				transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 			}
 			.cta a.primary {
 				background: var(--accent);
 				color: var(--on-accent);
+				box-shadow: 0 6px 20px var(--accent-glow);
+			}
+			.cta a.primary:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 10px 28px var(--accent-glow);
 			}
 			.cta a.secondary {
-				border: 1px solid rgb(var(--gray-light));
+				border: 1px solid var(--border);
 				color: rgb(var(--gray-dark));
+				background: rgba(var(--surface-rgb), 0.5);
+			}
+			.cta a.secondary:hover {
+				border-color: rgba(var(--accent-rgb), 0.4);
+				transform: translateY(-2px);
 			}
 			section {
-				margin: 2.5em 0;
+				margin: 3.5em 0;
 			}
 			h2 {
-				font-size: 1.5rem;
+				font-size: 1.6rem;
 			}
 			.skills {
 				display: flex;
 				flex-direction: column;
-				gap: 1em;
+				gap: 0.9em;
 			}
 			.skill-group {
 				display: flex;
@@ -73,8 +125,9 @@ const highlight = featured.length ? featured : allProjects.slice(0, 3);
 			}
 			.skill-group .group-label {
 				font-weight: 600;
-				min-width: 130px;
+				min-width: 140px;
 				color: rgb(var(--gray-dark));
+				font-size: 0.9rem;
 			}
 			.skill-group ul {
 				display: flex;
@@ -85,19 +138,31 @@ const highlight = featured.length ? featured : allProjects.slice(0, 3);
 				padding: 0;
 			}
 			.skill-group li {
-				padding: 0.2em 0.6em;
+				padding: 0.25em 0.7em;
 				font-size: 0.85rem;
-				background: rgb(var(--gray-light));
+				background: rgba(var(--surface-rgb), 0.6);
+				border: 1px solid var(--border);
 				border-radius: 999px;
 				color: rgb(var(--gray-dark));
+				transition: border-color 0.2s ease, color 0.2s ease;
+			}
+			.skill-group li:hover {
+				border-color: rgba(var(--accent-rgb), 0.45);
+				color: rgb(var(--black));
 			}
 			.section-head {
 				display: flex;
 				justify-content: space-between;
 				align-items: baseline;
+				margin-bottom: 1.2em;
+			}
+			.section-head h2 {
+				margin: 0;
 			}
 			.section-head a {
 				font-size: 0.95rem;
+				text-decoration: none;
+				font-weight: 500;
 			}
 			.grid {
 				display: grid;
@@ -105,9 +170,6 @@ const highlight = featured.length ? featured : allProjects.slice(0, 3);
 				gap: 1.5em;
 			}
 			@media (max-width: 720px) {
-				.hero h1 {
-					font-size: 2rem;
-				}
 				.skill-group .group-label {
 					min-width: 100%;
 				}
@@ -117,18 +179,19 @@ const highlight = featured.length ? featured : allProjects.slice(0, 3);
 	<body>
 		<Header />
 		<main>
-			<section class="hero">
-				<h1>Olá, sou {AUTHOR}</h1>
+			<section class="hero reveal">
+				<span class="badge"><span class="dot"></span>Available for projects</span>
+				<h1>Hi, I'm <span class="grad">{AUTHOR}</span></h1>
 				<p>{TAGLINE}</p>
 				<div class="cta">
-					<a class="primary" href="/projects">Ver projetos</a>
+					<a class="primary" href="/projects">View projects</a>
 					<a class="secondary" href={SOCIAL.github} target="_blank" rel="noopener">GitHub</a>
-					<a class="secondary" href={`mailto:${SOCIAL.email}`}>Contato</a>
+					<a class="secondary" href={`mailto:${SOCIAL.email}`}>Contact</a>
 				</div>
 			</section>
 
 			<section>
-				<h2>Tecnologias</h2>
+				<h2>Tech stack</h2>
 				<div class="skills">
 					{
 						SKILLS.map((group) => (
@@ -147,8 +210,8 @@ const highlight = featured.length ? featured : allProjects.slice(0, 3);
 				highlight.length > 0 && (
 					<section>
 						<div class="section-head">
-							<h2>Projetos em destaque</h2>
-							<a href="/projects">Ver todos →</a>
+							<h2>Featured projects</h2>
+							<a href="/projects">View all →</a>
 						</div>
 						<div class="grid">
 							{highlight.map((project) => <ProjectCard project={project} />)}

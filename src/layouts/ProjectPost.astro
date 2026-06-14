@@ -11,7 +11,7 @@ type Props = CollectionEntry<'projects'>['data'];
 const { title, description, category, tech, repoUrl, demoUrl, coverImage } = Astro.props;
 ---
 
-<html lang="pt-BR">
+<html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
 		<style>
@@ -59,19 +59,25 @@ const { title, description, category, tech, repoUrl, demoUrl, coverImage } = Ast
 			}
 			.links a {
 				display: inline-block;
-				padding: 0.5em 1.1em;
-				border-radius: 8px;
+				padding: 0.55em 1.2em;
+				border-radius: 10px;
 				text-decoration: none;
 				font-weight: 600;
 				font-size: 0.95rem;
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+			}
+			.links a:hover {
+				transform: translateY(-2px);
 			}
 			.links a.primary {
 				background: var(--accent);
 				color: var(--on-accent);
+				box-shadow: 0 6px 20px var(--accent-glow);
 			}
 			.links a.secondary {
-				border: 1px solid rgb(var(--gray-light));
+				border: 1px solid var(--border);
 				color: rgb(var(--gray-dark));
+				background: rgba(var(--surface-rgb), 0.5);
 			}
 			.tech {
 				display: flex;
@@ -96,7 +102,7 @@ const { title, description, category, tech, repoUrl, demoUrl, coverImage } = Ast
 					{coverImage && <img width={1020} height={510} src={coverImage} alt="" />}
 				</div>
 				<div class="prose">
-					<a class="back" href="/projects">← Projetos</a>
+					<a class="back" href="/projects">← Projects</a>
 					<div class="title">
 						<span class="category">{CATEGORY_LABELS[category]}</span>
 						<h1>{title}</h1>
@@ -104,8 +110,8 @@ const { title, description, category, tech, repoUrl, demoUrl, coverImage } = Ast
 							{tech.map((t) => <TechBadge label={t} />)}
 						</div>
 						<div class="links">
-							{demoUrl && <a class="primary" href={demoUrl} target="_blank" rel="noopener">Demo ao vivo ↗</a>}
-							{repoUrl && <a class="secondary" href={repoUrl} target="_blank" rel="noopener">Código ↗</a>}
+							{demoUrl && <a class="primary" href={demoUrl} target="_blank" rel="noopener">Live demo ↗</a>}
+							{repoUrl && <a class="secondary" href={repoUrl} target="_blank" rel="noopener">Code ↗</a>}
 						</div>
 						<hr />
 					</div>

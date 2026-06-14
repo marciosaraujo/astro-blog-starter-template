@@ -6,9 +6,9 @@ import { SITE_TITLE, AUTHOR, SKILLS, SOCIAL } from '../consts';
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 	<head>
-		<BaseHead title={`Sobre · ${SITE_TITLE}`} description={`Sobre ${AUTHOR}`} />
+		<BaseHead title={`About · ${SITE_TITLE}`} description={`About ${AUTHOR}`} />
 		<style>
 			main {
 				width: 720px;
@@ -33,17 +33,17 @@ import { SITE_TITLE, AUTHOR, SKILLS, SOCIAL } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>Sobre</h1>
+			<h1>About</h1>
 			<p>
-				Sou {AUTHOR}, DevOps / SRE. Trabalho com automação, infraestrutura,
-				confiabilidade e observabilidade de sistemas. Este site reúne projetos práticos
-				que mostram como eu resolvo problemas de ponta a ponta.
+				I'm {AUTHOR}, a DevOps / SRE engineer. I work with automation,
+				infrastructure, reliability and observability of systems. This site
+				gathers hands-on projects that show how I solve problems end to end.
 			</p>
 			<p>
-				<!-- TODO: personalize com sua trajetória, experiência e o que você procura. -->
+				<!-- TODO: personalize with your background, experience and what you're looking for. -->
 			</p>
 
-			<h2>Tecnologias</h2>
+			<h2>Tech stack</h2>
 			{
 				SKILLS.map((group) => (
 					<div class="skill-group">
@@ -53,7 +53,7 @@ import { SITE_TITLE, AUTHOR, SKILLS, SOCIAL } from '../consts';
 				))
 			}
 
-			<h2>Contato</h2>
+			<h2>Contact</h2>
 			<p class="contact">
 				<a href={SOCIAL.github} target="_blank" rel="noopener">GitHub</a>
 				<a href={`mailto:${SOCIAL.email}`}>{SOCIAL.email}</a>

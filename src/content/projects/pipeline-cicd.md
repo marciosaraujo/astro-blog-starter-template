@@ -1,6 +1,6 @@
 ---
-title: "Pipeline de CI/CD com GitHub Actions"
-description: "Build, testes e deploy automatizados a cada push, com promoção entre ambientes."
+title: "CI/CD pipeline with GitHub Actions"
+description: "Automated build, tests and deploy on every push, with promotion across environments."
 category: "automation"
 tech: ["GitHub Actions", "Docker", "Trivy", "Bash"]
 repoUrl: "https://github.com/marciosaraujo/cicd-pipeline"
@@ -9,25 +9,24 @@ coverImage: "/blog-placeholder-4.jpg"
 date: 2026-02-28
 ---
 
-> Projeto de exemplo — substitua pelo conteúdo de um projeto real seu.
+> Example project — replace it with content from a real project of yours.
 
-## Problema
+## Problem
 
-Builds e deploys manuais são lentos, inconsistentes e abrem espaço para erro
-humano.
+Manual builds and deploys are slow, inconsistent, and leave room for human error.
 
-## Solução
+## Solution
 
-Um pipeline em **GitHub Actions** que constrói a imagem, roda testes e análise de
-segurança e promove o artefato entre ambientes de forma controlada.
+A **GitHub Actions** pipeline that builds the image, runs tests and security
+analysis, and promotes the artifact across environments in a controlled way.
 
-## Decisões técnicas
+## Technical decisions
 
-- **Trivy** para scan de vulnerabilidades na imagem antes do deploy.
-- Deploy em staging automático; produção com aprovação manual.
-- Cache de dependências e camadas Docker para builds rápidos.
+- **Trivy** for vulnerability scanning of the image before deploy.
+- Automatic staging deploy; production with manual approval.
+- Caching of dependencies and Docker layers for fast builds.
 
-## Resultado
+## Result
 
-- Da branch ao deploy em poucos minutos.
-- Menos erros e rollback simples por commit.
+- From branch to deploy in a few minutes.
+- Fewer errors and simple rollback per commit.

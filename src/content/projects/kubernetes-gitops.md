@@ -1,6 +1,6 @@
 ---
-title: "Cluster Kubernetes com GitOps"
-description: "Cluster gerenciado de forma declarativa, com deploys automatizados via ArgoCD."
+title: "Kubernetes cluster with GitOps"
+description: "Cluster managed declaratively, with automated deploys via ArgoCD."
 category: "platform"
 tech: ["Kubernetes", "ArgoCD", "Helm", "Kustomize"]
 repoUrl: "https://github.com/marciosaraujo/k8s-gitops"
@@ -9,25 +9,25 @@ coverImage: "/blog-placeholder-1.jpg"
 date: 2026-05-20
 ---
 
-> Projeto de exemplo — substitua pelo conteúdo de um projeto real seu.
+> Example project — replace it with content from a real project of yours.
 
-## Problema
+## Problem
 
-Aplicar mudanças em um cluster Kubernetes manualmente (`kubectl apply`) não é
-rastreável, é propenso a erro e difícil de reverter.
+Applying changes to a Kubernetes cluster manually (`kubectl apply`) is not
+traceable, is error-prone, and hard to roll back.
 
-## Solução
+## Solution
 
-Adotar **GitOps**: o estado desejado do cluster vive em Git e o **ArgoCD**
-reconcilia o cluster com o repositório automaticamente.
+Adopt **GitOps**: the cluster's desired state lives in Git and **ArgoCD**
+reconciles the cluster with the repository automatically.
 
-## Decisões técnicas
+## Technical decisions
 
-- **Helm + Kustomize** para parametrizar manifests por ambiente.
-- Sync automático com rollback baseado em health checks.
-- Repositório como única fonte de verdade — toda mudança passa por PR.
+- **Helm + Kustomize** to parameterize manifests per environment.
+- Automatic sync with rollback based on health checks.
+- Repository as the single source of truth — every change goes through a PR.
 
-## Resultado
+## Result
 
-- Deploys auditáveis e reversíveis por commit.
-- Drift detectado e corrigido automaticamente.
+- Auditable, revertible deploys per commit.
+- Drift detected and corrected automatically.
