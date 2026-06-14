@@ -2,7 +2,7 @@
 
 Template de **portfólio** construído com **Astro** e implantado na borda da **Cloudflare Workers**. Os projetos são definidos como conteúdo em Markdown/MDX e organizados por área (Infraestrutura, Observabilidade, Automação/CI-CD e Plataforma). Inclui tema claro/escuro.
 
-🔗 **Demo ao vivo:** https://astro-blog-starter-template.marciosaraujo.workers.dev/
+🔗 **Demo ao vivo:** https://astro-portfolio.marcioaraujo.workers.dev/
 💻 **GitHub:** [@marciosaraujo](https://github.com/marciosaraujo)
 
 ## Destaques
