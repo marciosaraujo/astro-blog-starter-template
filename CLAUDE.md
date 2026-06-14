@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Personal **portfolio** site built on Astro (originally the Astro blog starter), server-rendered via the Cloudflare adapter and deployed to Cloudflare Workers. Showcases full-stack projects grouped by area (frontend, backend, data-ai, fullstack).
+Personal **portfolio** site built on Astro (originally the Astro blog starter), server-rendered via the Cloudflare adapter and deployed to Cloudflare Workers. Showcases DevOps/SRE projects grouped by area (`infra`, `observability`, `automation`, `platform`). UI copy and project content are in English (`lang="en"`).
 
 ## Commands
 
@@ -20,7 +20,9 @@ No test runner or linter is configured; `npm run check` is the gate before deplo
 - **Adapter**: `@astrojs/cloudflare` with `platformProxy` enabled, so Cloudflare bindings are available in `astro dev`.
 - **Routing**: file-based under `src/pages/`. Home (`index.astro`) shows hero + skills + featured projects; `/projects` is the filterable gallery; each project renders through `src/pages/projects/[...slug].astro`, which uses `getStaticPaths()` over the `projects` collection.
 - **Content**: projects live in `src/content/projects/` as `.md`/`.mdx`. The `projects` collection is defined in `src/content.config.ts` using a `glob` loader and a Zod frontmatter schema (`title`, `description`, `category` enum, `tech[]`, optional `repoUrl`/`demoUrl`/`coverImage`, `featured`, `date`). Add a project by dropping a file here — it appears in the gallery automatically, and on the home page if `featured: true`.
-- **Layouts/components**: project page layout in `src/layouts/ProjectPost.astro`; `src/components/` has `ProjectCard`, `TechBadge`, plus `BaseHead`, `Header`, `Footer`. The `/projects` filter is plain client-side JS (no UI framework).
+- **Layouts/components**: project page layout in `src/layouts/ProjectPost.astro`; `src/components/` has `ProjectCard`, `TechBadge`, plus `BaseHead`, `Header`, `Footer`, `HeaderLink`, `ThemeToggle`, `FormattedDate`. The `/projects` filter is plain client-side JS (no UI framework).
+- **Styling / design system**: `src/styles/global.css` holds the design tokens (CSS custom properties on `:root` and `:root[data-theme="dark"]`) — accent (a sober indigo/slate-blue), surface/border/glow colors, radii, and the legacy RGB triples (`--black`, `--gray`, …) the components rely on. Fonts are Inter (body) + Space Grotesk (headings), loaded from Google Fonts in `BaseHead`. Component styles are scoped `<style>` blocks. Visual style is "dev/SaaS minimalist": ambient glow + subtle grid background on `body`, spotlight-on-hover cards, blurred sticky header.
+- **Theming**: light/dark toggle. `BaseHead` has an inline script that applies the saved/system theme before paint (`data-theme` on `<html>`) and re-applies it on `astro:after-swap`; `ThemeToggle` uses a document-delegated click handler. Both are written this way so the theme survives Astro's view transitions (`ClientRouter`, also wired in `BaseHead`).
 - **Global config**: `src/consts.ts` holds site metadata plus `AUTHOR`, `TAGLINE`, `SOCIAL` (github/email), `SKILLS` (grouped tech list), and `CATEGORY_LABELS`. The canonical `site` URL is set in `astro.config.mjs` (currently `https://example.com` — update before deploy for correct SEO/sitemap/RSS).
 - **Static assets**: `public/`.
 

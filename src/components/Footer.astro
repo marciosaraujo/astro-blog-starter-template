@@ -4,7 +4,7 @@ const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} {AUTHOR}. Feito com Astro e Cloudflare Workers.
+	&copy; {today.getFullYear()} {AUTHOR}. Built with Astro and Cloudflare Workers.
 	<div class="social-links">
 		<a href={SOCIAL.github} target="_blank" rel="noopener">
 			<span class="sr-only">GitHub</span>
@@ -28,10 +28,12 @@ const today = new Date();
 </footer>
 <style>
 	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
+		padding: 2.5em 1em 4em 1em;
+		margin-top: 3em;
+		border-top: 1px solid var(--border);
 		color: rgb(var(--gray));
 		text-align: center;
+		font-size: 0.9rem;
 	}
 	.social-links {
 		display: flex;

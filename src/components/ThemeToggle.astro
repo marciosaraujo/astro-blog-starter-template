@@ -40,8 +40,11 @@
 </style>
 
 <script>
-	const btn = document.getElementById('theme-toggle');
-	btn?.addEventListener('click', () => {
+	// Delegated on document so it keeps working across view transitions
+	// (the button element is replaced on each navigation).
+	document.addEventListener('click', (e) => {
+		const btn = (e.target as HTMLElement)?.closest('#theme-toggle');
+		if (!btn) return;
 		const current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
 		const next = current === 'dark' ? 'light' : 'dark';
 		document.documentElement.dataset.theme = next;

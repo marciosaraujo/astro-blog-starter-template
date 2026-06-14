@@ -1,0 +1,93 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A code window deploying a static site to the Cloudflare edge network">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d0f17"/>
+      <stop offset="1" stop-color="#0a0b11"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0" r="0.9">
+      <stop offset="0" stop-color="#5061ad" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#5061ad" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8d9ad4"/>
+      <stop offset="1" stop-color="#5061ad"/>
+    </linearGradient>
+    <radialGradient id="globeFill" cx="0.4" cy="0.35" r="0.8">
+      <stop offset="0" stop-color="#1b2030"/>
+      <stop offset="1" stop-color="#10131d"/>
+    </radialGradient>
+    <clipPath id="globeClip"><circle cx="880" cy="300" r="150"/></clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <rect width="1200" height="600" fill="url(#glow)"/>
+
+  <!-- Subtle grid -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <path d="M0 100H1200M0 200H1200M0 300H1200M0 400H1200M0 500H1200"/>
+    <path d="M100 0V600M200 0V600M300 0V600M400 0V600M500 0V600M600 0V600M700 0V600M800 0V600M900 0V600M1000 0V600M1100 0V600"/>
+  </g>
+
+  <!-- Deploy path: code window -> edge -->
+  <path d="M360 300 H 730" stroke="url(#accent)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round" stroke-opacity="0.95" fill="none"/>
+  <circle cx="545" cy="300" r="14" fill="#5061ad" fill-opacity="0.25"/>
+  <path d="M539 300 L549 300 M544 295 L549 300 L544 305" stroke="#bcc6ec" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Code window -->
+  <g>
+    <rect x="80" y="170" width="280" height="260" rx="18" fill="#13151c" stroke="#ffffff" stroke-opacity="0.08"/>
+    <rect x="80" y="170" width="280" height="44" rx="18" fill="#1a1d27"/>
+    <rect x="80" y="196" width="280" height="18" fill="#1a1d27"/>
+    <circle cx="106" cy="192" r="6" fill="#ff5f57"/>
+    <circle cx="128" cy="192" r="6" fill="#febc2e"/>
+    <circle cx="150" cy="192" r="6" fill="#28c840"/>
+    <!-- code lines -->
+    <g>
+      <rect x="104" y="244" width="60" height="9" rx="4.5" fill="#8d9ad4"/>
+      <rect x="172" y="244" width="110" height="9" rx="4.5" fill="#3a4156"/>
+      <rect x="120" y="272" width="90" height="9" rx="4.5" fill="#5b6486"/>
+      <rect x="218" y="272" width="56" height="9" rx="4.5" fill="#3a4156"/>
+      <rect x="120" y="300" width="48" height="9" rx="4.5" fill="#3a4156"/>
+      <rect x="176" y="300" width="120" height="9" rx="4.5" fill="#5b6486"/>
+      <rect x="104" y="328" width="70" height="9" rx="4.5" fill="#8d9ad4"/>
+      <rect x="182" y="328" width="80" height="9" rx="4.5" fill="#3a4156"/>
+      <rect x="120" y="356" width="100" height="9" rx="4.5" fill="#3a4156"/>
+      <rect x="104" y="384" width="44" height="9" rx="4.5" fill="#5b6486"/>
+    </g>
+  </g>
+
+  <!-- Edge globe -->
+  <g>
+    <circle cx="880" cy="300" r="150" fill="url(#globeFill)" stroke="url(#accent)" stroke-width="2"/>
+    <g clip-path="url(#globeClip)" stroke="#8d9ad4" stroke-opacity="0.35" fill="none" stroke-width="1.4">
+      <!-- latitudes -->
+      <line x1="730" y1="250" x2="1030" y2="250"/>
+      <line x1="730" y1="300" x2="1030" y2="300"/>
+      <line x1="730" y1="350" x2="1030" y2="350"/>
+      <!-- longitudes (ellipses) -->
+      <ellipse cx="880" cy="300" rx="50" ry="150"/>
+      <ellipse cx="880" cy="300" rx="110" ry="150"/>
+    </g>
+    <!-- orbit -->
+    <ellipse cx="880" cy="300" rx="185" ry="70" stroke="#5061ad" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="3 7" fill="none"/>
+
+    <!-- edge nodes -->
+    <g fill="#8d9ad4">
+      <circle cx="820" cy="220" r="6"/>
+      <circle cx="935" cy="240" r="6"/>
+      <circle cx="960" cy="345" r="6"/>
+      <circle cx="835" cy="375" r="6"/>
+      <circle cx="790" cy="305" r="6"/>
+    </g>
+    <g stroke="#8d9ad4" stroke-opacity="0.5" stroke-width="1.2" fill="none">
+      <path d="M820 220 L935 240 L960 345 L835 375 L790 305 L820 220"/>
+      <path d="M935 240 L790 305 M820 220 L960 345 M935 240 L835 375"/>
+    </g>
+    <!-- node halos -->
+    <g fill="none" stroke="#8d9ad4" stroke-opacity="0.25" stroke-width="1.5">
+      <circle cx="820" cy="220" r="12"/>
+      <circle cx="960" cy="345" r="12"/>
+    </g>
+  </g>
+</svg>

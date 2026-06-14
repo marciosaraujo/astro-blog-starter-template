@@ -1,6 +1,6 @@
 ---
-title: "Infraestrutura como código na AWS"
-description: "Provisionamento reproduzível de ambientes na AWS com Terraform."
+title: "Infrastructure as code on AWS"
+description: "Reproducible provisioning of AWS environments with Terraform."
 category: "infra"
 tech: ["Terraform", "AWS", "VPC", "EKS"]
 repoUrl: "https://github.com/marciosaraujo/terraform-aws"
@@ -9,25 +9,25 @@ coverImage: "/blog-placeholder-2.jpg"
 date: 2026-04-18
 ---
 
-> Projeto de exemplo — substitua pelo conteúdo de um projeto real seu.
+> Example project — replace it with content from a real project of yours.
 
-## Problema
+## Problem
 
-Criar ambientes na nuvem pelo console não é repetível e gera diferenças sutis
-entre dev, staging e produção.
+Creating cloud environments through the console is not repeatable and leads to
+subtle differences between dev, staging and production.
 
-## Solução
+## Solution
 
-Toda a infraestrutura — rede, cluster, IAM — descrita em **Terraform**, com
-módulos reutilizáveis e estado remoto compartilhado.
+All infrastructure — network, cluster, IAM — described in **Terraform**, with
+reusable modules and shared remote state.
 
-## Decisões técnicas
+## Technical decisions
 
-- **Módulos** versionados para VPC, EKS e políticas de IAM.
-- **State remoto** em S3 com lock via DynamoDB.
-- `terraform plan` no CI para revisar mudanças antes do apply.
+- Versioned **modules** for VPC, EKS and IAM policies.
+- **Remote state** in S3 with locking via DynamoDB.
+- `terraform plan` in CI to review changes before apply.
 
-## Resultado
+## Result
 
-- Ambientes idênticos criados em minutos.
-- Mudanças de infra revisadas como código, via PR.
+- Identical environments created in minutes.
+- Infra changes reviewed as code, via PR.
