@@ -15,10 +15,10 @@ export const SOCIAL = {
 
 // Tecnologias destacadas na home, agrupadas por área.
 export const SKILLS: { group: string; items: string[] }[] = [
-	{ group: "Containers & Orquestração", items: ["Docker", "Kubernetes", "Helm"] },
-	{ group: "IaC & CI/CD", items: ["Terraform", "Ansible", "GitHub Actions", "GitLab CI", "ArgoCD"] },
-	{ group: "Cloud & Infra", items: ["AWS", "Cloudflare", "Linux", "Nginx"] },
-	{ group: "Observabilidade", items: ["Prometheus", "Grafana", "Loki", "OpenTelemetry"] },
+	{ group: "Containers & Orquestração", items: ["Docker", "Kubernetes", "Helm", "Rancher"] },
+	{ group: "IaC & CI/CD", items: ["Azure DevOps", "Terraform", "Ansible", "GitHub Actions", "GitLab CI", "ArgoCD"] },
+	{ group: "Cloud & Infra", items: ["Azure", "AWS", "Cloudflare", "Linux", "Nginx"] },
+	{ group: "Observabilidade", items: ["Grafana", "New Relic", "DataDog", "Splunk", "Jira Service Management"] },
 	{ group: "Scripting", items: ["Bash", "Python", "Go"] },
 ];
 
