@@ -2,7 +2,7 @@
 
 A **portfolio** template built with **Astro** and deployed to the **Cloudflare Workers** edge. Projects are authored as Markdown/MDX content and organized by area (Infrastructure, Observability, Automation/CI-CD and Platform). Includes a light/dark theme.
 
-🔗 **Live demo:** https://astro-portfolio.marciosaraujo.workers.dev/
+🔗 **Live demo:** https://marcio-portfolio.marciosaraujo.workers.dev/
 
 ## Highlights
 
