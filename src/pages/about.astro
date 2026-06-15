@@ -29,6 +29,32 @@ import { SITE_TITLE, AUTHOR, SKILLS, SOCIAL } from '../consts';
 				display: inline-block;
 				margin-right: 1em;
 			}
+			.lead {
+				font-size: 1.15rem;
+				color: rgb(var(--gray-dark));
+				margin: 0.5em 0 1.5em;
+			}
+			.lead strong {
+				color: rgb(var(--black));
+			}
+			.focus {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				display: grid;
+				gap: 0.6em;
+			}
+			.focus li {
+				padding-left: 1.4em;
+				position: relative;
+				color: rgb(var(--gray-dark));
+			}
+			.focus li::before {
+				content: '▸';
+				position: absolute;
+				left: 0;
+				color: rgb(var(--accent));
+			}
 		</style>
 	</head>
 	<body>
@@ -36,14 +62,21 @@ import { SITE_TITLE, AUTHOR, SKILLS, SOCIAL } from '../consts';
 		<Header />
 		<main>
 			<h1>About</h1>
-			<p>
-				I'm {AUTHOR}, a DevOps / SRE engineer. I work with automation,
-				infrastructure, reliability and observability of systems. This site
-				gathers hands-on projects that show how I solve problems end to end.
+			<p class="lead">
+				I work end to end: from infrastructure and automation to reliability,
+				observability, and cloud cost, so engineering leaders get
+				<strong>predictable delivery instead of firefighting</strong>. This site
+				showcases hands-on projects that demonstrate how I design, implement, and
+				evolve platforms that support real products in production.
 			</p>
-			<p>
-				<!-- TODO: personalize with your background, experience and what you're looking for. -->
-			</p>
+
+			<h2>What I focus on</h2>
+			<ul class="focus">
+				<li>Internal developer platforms that reduce toil and accelerate delivery.</li>
+				<li>Infrastructure as Code and GitOps pipelines, from commit to production.</li>
+				<li>Observability with SLOs and error budgets that drive concrete actions.</li>
+				<li>Cloud cost and capacity (FinOps) treated as first-class metrics for the business.</li>
+			</ul>
 
 			<h2>Tech stack</h2>
 			{

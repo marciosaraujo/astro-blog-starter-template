@@ -12,22 +12,20 @@ A **portfolio** template built with **Astro** and deployed to the **Cloudflare W
 - ✅ "Dev/SaaS minimalist" design: Inter + Space Grotesk type, ambient glow, subtle grid background, spotlight-on-hover cards and a blurred sticky header
 - ✅ Smooth client-side navigation via Astro view transitions
 - ✅ SEO with canonical URLs, OpenGraph and sitemap
-- ✅ RSS feed of the projects
-- ✅ Markdown & MDX for the content
+- ✅ Markdown for the content
 - ✅ Built-in observability logging (Cloudflare)
 
 ## Structure
 
 ```
 src/
-├── content/projects/         # One .md/.mdx file per project (the portfolio content)
+├── content/projects/         # One .md file per project (the portfolio content)
 ├── content.config.ts         # "projects" collection schema
 ├── consts.ts                 # Site data: title, author, tagline, skills, links, categories
 ├── env.d.ts
 ├── pages/
 │   ├── index.astro           # Home: hero + skills + featured projects
 │   ├── about.astro           # About / contact
-│   ├── rss.xml.js            # Projects RSS feed
 │   └── projects/
 │       ├── index.astro       # Category-filterable gallery
 │       └── [...slug].astro   # Per-project page
