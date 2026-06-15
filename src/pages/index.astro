@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Background from '../components/Background.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { SITE_TITLE, SITE_DESCRIPTION, AUTHOR, TAGLINE, SKILLS, SOCIAL } from '../consts';
 import { getCollection } from 'astro:content';
@@ -24,6 +25,36 @@ const highlight = featured.length ? featured : allProjects.slice(0, 3);
 			}
 			.hero {
 				padding: 3em 0 1.5em;
+				display: grid;
+				grid-template-columns: 1.05fr 1fr;
+				align-items: center;
+				gap: 2.5em;
+			}
+			.hero-visual {
+				padding: 0;
+				overflow: hidden;
+				line-height: 0;
+				transform: perspective(1200px) rotateY(-4deg);
+				transition: transform 0.4s ease;
+			}
+			.hero-visual:hover {
+				transform: perspective(1200px) rotateY(0deg);
+			}
+			.hero-visual img {
+				width: 100%;
+				height: auto;
+				display: block;
+				border-radius: inherit;
+			}
+			@media (max-width: 820px) {
+				.hero {
+					grid-template-columns: 1fr;
+					gap: 1.8em;
+				}
+				.hero-visual {
+					transform: none;
+					order: -1;
+				}
 			}
 			.badge {
 				display: inline-flex;
@@ -177,16 +208,22 @@ const highlight = featured.length ? featured : allProjects.slice(0, 3);
 		</style>
 	</head>
 	<body>
+		<Background />
 		<Header />
 		<main>
 			<section class="hero reveal">
-				<span class="badge"><span class="dot"></span>Available for projects</span>
-				<h1>Hi, I'm <span class="grad">{AUTHOR}</span></h1>
-				<p>{TAGLINE}</p>
-				<div class="cta">
-					<a class="primary" href="/projects">View projects</a>
-					<a class="secondary" href={SOCIAL.github} target="_blank" rel="noopener">GitHub</a>
-					<a class="secondary" href={`mailto:${SOCIAL.email}`}>Contact</a>
+				<div class="hero-copy">
+					<span class="badge"><span class="dot"></span>Available for projects</span>
+					<h1>Hi, I'm <span class="grad">{AUTHOR}</span></h1>
+					<p>{TAGLINE}</p>
+					<div class="cta">
+						<a class="primary" href="/projects">View projects</a>
+						<a class="secondary" href={SOCIAL.github} target="_blank" rel="noopener">GitHub</a>
+						<a class="secondary" href={`mailto:${SOCIAL.email}`}>Contact</a>
+					</div>
+				</div>
+				<div class="hero-visual glass-strong">
+					<img src="/hero-terminal.svg" alt="Minimalist hacker-style terminal running a DevOps deploy session" width="760" height="560" loading="eager" />
 				</div>
 			</section>
 

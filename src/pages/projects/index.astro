@@ -2,6 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Background from '../../components/Background.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { SITE_TITLE, CATEGORY_LABELS } from '../../consts';
 import { getCollection } from 'astro:content';
@@ -69,6 +70,7 @@ const filters = usedCategories.map((c) => ({ value: c, label: CATEGORY_LABELS[c]
 		</style>
 	</head>
 	<body>
+		<Background />
 		<Header />
 		<main>
 			<h1>Projects</h1>

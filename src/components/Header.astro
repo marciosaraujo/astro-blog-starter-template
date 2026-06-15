@@ -4,7 +4,7 @@ import ThemeToggle from './ThemeToggle.astro';
 import { SITE_TITLE, SOCIAL } from '../consts';
 ---
 
-<header>
+<header class="glass-header">
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
@@ -42,10 +42,7 @@ import { SITE_TITLE, SOCIAL } from '../consts';
 		position: sticky;
 		top: 0;
 		z-index: 50;
-		background: rgba(var(--surface-rgb), 0.7);
-		backdrop-filter: saturate(180%) blur(12px);
-		-webkit-backdrop-filter: saturate(180%) blur(12px);
-		border-bottom: 1px solid var(--border);
+		/* visual glass vem da classe global .glass-header */
 	}
 	h2 {
 		margin: 0;
