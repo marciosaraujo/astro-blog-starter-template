@@ -1,0 +1,98 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A unified dashboard aggregating real-time health status from multiple cloud providers">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d0f17"/>
+      <stop offset="1" stop-color="#0a0b11"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0" r="0.9">
+      <stop offset="0" stop-color="#5061ad" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#5061ad" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8d9ad4"/>
+      <stop offset="1" stop-color="#5061ad"/>
+    </linearGradient>
+    <radialGradient id="nodeGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#5061ad" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#5061ad" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <rect width="1200" height="600" fill="url(#glow)"/>
+
+  <!-- Subtle grid -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <path d="M0 100H1200M0 200H1200M0 300H1200M0 400H1200M0 500H1200"/>
+    <path d="M100 0V600M200 0V600M300 0V600M400 0V600M500 0V600M600 0V600M700 0V600M800 0V600M900 0V600M1000 0V600M1100 0V600"/>
+  </g>
+
+  <!-- Connections from providers into the central dashboard -->
+  <g stroke="url(#accent)" stroke-width="3" stroke-opacity="0.8" stroke-linecap="round" fill="none">
+    <path d="M230 170 C 360 220, 420 250, 500 280"/>
+    <path d="M210 300 H 470"/>
+    <path d="M230 430 C 360 380, 420 350, 500 320"/>
+  </g>
+
+  <!-- Provider nodes (left) -->
+  <g>
+    <!-- node 1 healthy -->
+    <rect x="100" y="140" width="150" height="60" rx="14" fill="#13151c" stroke="#ffffff" stroke-opacity="0.08"/>
+    <circle cx="130" cy="170" r="9" fill="#28c840"/>
+    <rect x="150" y="160" width="80" height="8" rx="4" fill="#5b6486"/>
+    <rect x="150" y="176" width="56" height="7" rx="3.5" fill="#3a4156"/>
+    <!-- node 2 healthy -->
+    <rect x="80" y="270" width="150" height="60" rx="14" fill="#13151c" stroke="#ffffff" stroke-opacity="0.08"/>
+    <circle cx="110" cy="300" r="9" fill="#28c840"/>
+    <rect x="130" y="290" width="80" height="8" rx="4" fill="#5b6486"/>
+    <rect x="130" y="306" width="56" height="7" rx="3.5" fill="#3a4156"/>
+    <!-- node 3 impacted -->
+    <rect x="100" y="400" width="150" height="60" rx="14" fill="#13151c" stroke="#ffffff" stroke-opacity="0.08"/>
+    <circle cx="130" cy="430" r="9" fill="#febc2e"/>
+    <rect x="150" y="420" width="80" height="8" rx="4" fill="#5b6486"/>
+    <rect x="150" y="436" width="56" height="7" rx="3.5" fill="#3a4156"/>
+  </g>
+
+  <!-- Central dashboard panel -->
+  <g>
+    <circle cx="780" cy="300" r="190" fill="url(#nodeGlow)"/>
+    <rect x="500" y="150" width="560" height="300" rx="22" fill="#141826" stroke="url(#accent)" stroke-width="2.5"/>
+    <!-- header -->
+    <rect x="500" y="150" width="560" height="50" rx="22" fill="#1a1d27"/>
+    <rect x="500" y="178" width="560" height="22" fill="#1a1d27"/>
+    <rect x="524" y="168" width="160" height="14" rx="7" fill="#8d9ad4"/>
+    <circle cx="1030" cy="175" r="8" fill="#28c840"/>
+
+    <!-- KPI cards -->
+    <rect x="524" y="222" width="150" height="80" rx="12" fill="#1d2333"/>
+    <rect x="544" y="240" width="60" height="10" rx="5" fill="#5b6486"/>
+    <rect x="544" y="262" width="40" height="22" rx="6" fill="#8d9ad4"/>
+
+    <rect x="690" y="222" width="150" height="80" rx="12" fill="#1d2333"/>
+    <rect x="710" y="240" width="60" height="10" rx="5" fill="#5b6486"/>
+    <rect x="710" y="262" width="40" height="22" rx="6" fill="#9aa6d6"/>
+
+    <rect x="856" y="222" width="180" height="80" rx="12" fill="#1d2333"/>
+    <rect x="876" y="240" width="60" height="10" rx="5" fill="#5b6486"/>
+    <rect x="876" y="262" width="40" height="22" rx="6" fill="#bcc6ec"/>
+
+    <!-- service rows -->
+    <g>
+      <rect x="524" y="320" width="512" height="34" rx="9" fill="#1a1f2e"/>
+      <circle cx="546" cy="337" r="6" fill="#28c840"/>
+      <rect x="566" y="333" width="160" height="8" rx="4" fill="#3a4156"/>
+      <rect x="940" y="333" width="76" height="8" rx="4" fill="#3a4156"/>
+
+      <rect x="524" y="362" width="512" height="34" rx="9" fill="#1a1f2e"/>
+      <circle cx="546" cy="379" r="6" fill="#28c840"/>
+      <rect x="566" y="375" width="200" height="8" rx="4" fill="#3a4156"/>
+      <rect x="940" y="375" width="76" height="8" rx="4" fill="#3a4156"/>
+
+      <rect x="524" y="404" width="512" height="34" rx="9" fill="#1a1f2e"/>
+      <circle cx="546" cy="421" r="6" fill="#febc2e"/>
+      <rect x="566" y="417" width="140" height="8" rx="4" fill="#3a4156"/>
+      <rect x="940" y="417" width="76" height="8" rx="4" fill="#3a4156"/>
+    </g>
+  </g>
+</svg>
