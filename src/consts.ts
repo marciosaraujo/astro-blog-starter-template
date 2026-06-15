@@ -1,11 +1,11 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
 
-export const SITE_TITLE = "Marcio Araujo — Portfolio";
+export const SITE_TITLE = "Márcio Araújo — Portfolio";
 export const SITE_DESCRIPTION =
 	"Hands-on DevOps/SRE projects: infrastructure, automation, observability and reliability.";
 
-export const AUTHOR = "Marcio Araujo";
+export const AUTHOR = "Márcio Araújo";
 export const TAGLINE = "DevOps / SRE";
 
 export const SOCIAL = {
@@ -20,6 +20,9 @@ export const SKILLS: { group: string; items: string[] }[] = [
 	{ group: "Cloud & Infra", items: ["Azure", "AWS", "Cloudflare", "Linux", "Nginx"] },
 	{ group: "Observability", items: ["Grafana", "New Relic", "DataDog", "Splunk", "Jira Service Management"] },
 	{ group: "Scripting", items: ["Bash", "Python", "Go"] },
+	{ group: "Edge & Runtime", items: ["Cloudflare Workers", "Wrangler"] },
+	{ group: "Frontend", items: ["Astro", "React", "React Router 7", "Tailwind CSS", "Vite"] },
+	{ group: "Backend & APIs", items: ["Hono", "TypeScript"] },
 ];
 
 // Human-readable labels for project categories.

@@ -31,15 +31,6 @@ const filters = usedCategories.map((c) => ({ value: c, label: CATEGORY_LABELS[c]
 				color: rgb(var(--gray));
 				margin-top: 0;
 			}
-			.note {
-				padding: 0.7em 1em;
-				margin: 1em 0;
-				font-size: 0.9rem;
-				color: rgb(var(--gray-dark));
-				background: rgba(var(--surface-rgb), 0.6);
-				border: 1px solid var(--border);
-				border-radius: var(--radius);
-			}
 			.filters {
 				display: flex;
 				flex-wrap: wrap;
@@ -82,10 +73,6 @@ const filters = usedCategories.map((c) => ({ value: c, label: CATEGORY_LABELS[c]
 		<main>
 			<h1>Projects</h1>
 			<p class="lead">A selection of hands-on projects, organized by area.</p>
-			<p class="note">
-				ℹ️ Some of the projects below are examples to demonstrate the layout — they
-				will be replaced with my real projects.
-			</p>
 
 			<div class="filters" role="group" aria-label="Filter by category">
 				<button data-filter="all" aria-pressed="true">All</button>
